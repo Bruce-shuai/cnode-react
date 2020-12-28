@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';    // Provider是核心组件
+import store from './store';
+// BrowserRouter 代表路由  Route代表路由规则
+import { BrowserRouter, Route} from 'react-router-dom'
+// import { Globalstyle } from './style';
+import Header from './common/header';
+import { GlobalStyleFont } from './statics/iconfont/iconfont';
+import Home from './pages/home';
+import Detail from './pages/detail';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return(
+      // React.Fragment 这样就不用再进行解构了
+      <React.Fragment>  
+        {/* 有了Provider就可以把store提供给包围到的所有组件 */}
+        <Provider store={store}>
+          <div>
+          <Header />
+          <BrowserRouter>
+            <div>
+            <Route path='/' exact component={Home}></Route>
+            <Route path='/detail' exact component={Detail}></Route>
+            </div>
+          </BrowserRouter>
+          <GlobalStyleFont />
+        {/* <Globalstyle /> */}
+        </div>
+        </Provider>
+      </React.Fragment>
+    )
+  }
 }
-
 export default App;
