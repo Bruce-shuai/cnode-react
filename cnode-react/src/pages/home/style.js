@@ -4,7 +4,7 @@ export const HomeWrapper = styled.div`
     overflow: hidden;
     width: 90%;
     margin: 10px auto;
-    height: 300px;
+    // height: 300px;
     background: red;
 `;
 
@@ -35,3 +35,20 @@ export const TopicItem = styled.div`
     margin-right: 5px;
     font-size: 15px;
 `;
+
+export const ListItem = styled.div`
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid black;
+    background: green;
+    font-size: 14px;
+    vertical-align:middle;
+    // line-height: 40px;
+    // text-align: center;
+    .pic {
+        vertical-align:middle;
+        // display: block;
+        width: 40px;
+        height: 40px;
+    }
+`
