@@ -1,3 +1,4 @@
+// 这里的index文件，只是为了让reducer导出的路径看起来更短（当成出口文件）
 // 感觉文件的出口文件都是index
 import * as actionCreators from './actionCreators';
 import * as constaints from './constants';

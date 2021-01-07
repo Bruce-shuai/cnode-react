@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'; // 这是在写全局的样式时要引入的东西
 
 createGlobalStyle `
 html, body, div, span, applet, object, iframe,

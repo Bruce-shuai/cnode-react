@@ -1,6 +1,6 @@
 import React, {Component} from 'react'; 
 import { connect } from 'react-redux';
-import 
+import   // 这相当于引入了样式组件(实际就是带了样式的组件)
 { 
   HeaderWrapper,
   Logo,
@@ -12,7 +12,8 @@ import
   SearchWrapper 
 } from "./style.js";  // ./这个别忘了
 import { actionCreators } from './store';     // store 是会自动找index这个文件？
-
+// 实现路由跳转功能
+import { Link } from 'react-router-dom';
 
 // // 无状态组件--性能更高
 // const Header = (props) => {
@@ -81,16 +82,16 @@ class Header extends Component {
       const { focus, touch, list, handleInputMouseOver, handleInputMouseLeave, handleInputFocus, handleInputBlur} = this.props;
         return (
             <HeaderWrapper>
-                {/* 首页根路径 */}
+                {/* 首页根路径 / */}
                 <Logo href='/'/>
                 <Nav>   
                 <SearchWrapper>     
                   <NavSearch
-									className={touch ? 'touched' : ''}
-									onMouseOver={handleInputMouseOver} // 这里有props是因为mapDispathToProps这个参数的原因
-                  onMouseLeave={handleInputMouseLeave}
-                  onFocus={()=>handleInputFocus(list)} // 这里第一个() 为什么没有list
-                  onBlur={handleInputBlur}
+									  className={touch ? 'touched' : ''} // 用法巧妙--{}写表达式 是真的厉害！
+									  onMouseOver={handleInputMouseOver} // 这里有props是因为mapDispathToProps这个参数的原因
+                    onMouseLeave={handleInputMouseLeave}
+                    onFocus={()=>handleInputFocus(list)} // 这里第一个() 为什么没有list
+                    onBlur={handleInputBlur}
                   ></NavSearch>  
                   <span className="iconfont">&#xe602;</span>   
                   { this.getListArea(focus) }
@@ -98,10 +99,18 @@ class Header extends Component {
                   {/* 可能之后这下面这个会变成Button */}
                   <NavItem className='right'>登录</NavItem>
                   <NavItem className='right'>注册</NavItem>
+                  <Link to='/about'>
                   <NavItem className='right'>关于</NavItem>
+                  </Link>
+                  <Link to='/api'>
                   <NavItem className='right'>API</NavItem>
+                  </Link>
+                  <Link to='/user'>
                   <NavItem className='right'>新手入门</NavItem>
+                  </Link>
+                  <Link to='/'>
                   <NavItem className='right'>首页</NavItem>
+                  </Link>
                 </Nav>
             </HeaderWrapper>
         )
@@ -111,8 +120,9 @@ const mapStateToProps = (state) => {
   return {
     // 这一步是将仓库里的touch映射到组件的props里  这里是从header下面去取
     // touch: state.header.touch  
-    focus: state.get('header').get('focus'),
-    touch: state.get('header').get('touch'),   // 这是使用了immutable后必须要用get() 方法传入touch这个属性
+    // focus: state.get('header').get('focus'),
+    focus: state.get(['header', 'focus']),
+    touch: state.getIn(['header', 'touch']),   // 这是使用了immutable后必须要用get() 方法传入touch这个属性
     list: state.getIn(['header', 'list'])
   }
 }
@@ -129,6 +139,7 @@ const mapDispathToProps = (dispatch) => {
       },
       handleInputFocus(list){
         if (list.size === 0) {
+          // 通过中间件派发ajax获取数据 
           dispatch(actionCreators.getList());
         }
         dispatch(actionCreators.searchFocus());

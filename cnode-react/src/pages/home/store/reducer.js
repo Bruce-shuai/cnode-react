@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-
+import * as constants from './constants';
 const defaultState = fromJS({
     topicList: [{
         id: 1,
@@ -26,7 +26,7 @@ const defaultState = fromJS({
 // 这是一个纯函数，给定一个固定的输入，就会有一个固定的输出 同时没有副作用
 export default (state = defaultState, action) => {
     switch (action.type) {
-        case 'change_home_data':
+        case constants.CHANGE_HOME_DATA:
             console.log(action);
         return state.set('listList', fromJS(action.List));
         default:

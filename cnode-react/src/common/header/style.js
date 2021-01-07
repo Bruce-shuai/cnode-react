@@ -1,23 +1,27 @@
+// 只属于Header这个组件使用的样式
 import styled from 'styled-components';
 import logoPic from '../../statics/logo.svg';
 
 // 这些样式只对指定的组件有影响，对其他组件是没有影响的
+// 这个HeaderWrapper这个组件实则就是一个div~
 export const HeaderWrapper = styled.div`
     position: relative;
     height: 50px;
     background: #444;
 `;
 
-export const Logo = styled.a`
+// Logo是a标签~ 因为点击Logo会返回主页，a标签是内联标签，要设置成block块状标签才能改高度和宽度
+export const Logo = styled.a`  // attrs这种写法是啥？
     position: absolute;
     top: 8px;
     left: 0;
     margin-left: 5%;
-    display: block;
+    display: block;  
     width: 120px;
     height: 28.19px;
+    // url里不能直接写工程目录，不然会被当成普通的字符串，应该用多行文本嵌变量的语法
     background: url(${logoPic});
-    // background-sizing: contain;
+    // background-size: contain;
 `;
 
 export const Nav = styled.div`
@@ -26,7 +30,7 @@ export const Nav = styled.div`
     margin:0 auto;
 `;
 
-export const NavItem = styled.div`
+export const NavItem = styled.a`
     // 组件有类就是这种写法
     &.right {
         float: right;
@@ -38,6 +42,9 @@ export const NavItem = styled.div`
     // 这招让字体居中
     line-height: 50px;
     padding: 0px 15px;
+    &:hover { // 伪类的使用
+        color: #fff;
+    }
 `;
 
 export const SearchWrapper = styled.div`
