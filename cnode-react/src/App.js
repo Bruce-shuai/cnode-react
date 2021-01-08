@@ -11,7 +11,7 @@ import { GlobalStyleFont } from './statics/iconfont/iconfont';
 import Home from './pages/home';
 import Detail from './pages/detail';
 import Book from './pages/book';
-import User from './pages/user';
+import Getstart from './pages/getstart';
 import About from './pages/about';
 import Api from './pages/api';
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
             <Route path='/' exact component={Home}></Route>
             <Route path='/detail' exact component={Detail}></Route>
             <Route path='/book' exact component={Book}></Route>
-            <Route path='/user' exact component={User}></Route>
+            <Route path='/getstart' exact component={Getstart}></Route>
             <Route path='/about' exact component={About}></Route>
             <Route path='/api' exact component={Api}></Route>
             </div>

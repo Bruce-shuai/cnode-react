@@ -105,7 +105,7 @@ class Header extends Component {
                   <Link to='/api'>
                   <NavItem className='right'>API</NavItem>
                   </Link>
-                  <Link to='/user'>
+                  <Link to='/getstart'>
                   <NavItem className='right'>新手入门</NavItem>
                   </Link>
                   <Link to='/'>
