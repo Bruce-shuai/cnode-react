@@ -8,6 +8,7 @@ import {
 import Topic from './components/Topic';
 import List from './components/List';
 import Recommend from './components/Recommend';
+import Paginate from './components/Paginate';
 import { actionCreators } from './store';
 class Home extends Component {
     render() {
@@ -19,9 +20,9 @@ class Home extends Component {
                 <HomeLeft>
                     <Topic />
                     <List />
+                    <Paginate />
                 </HomeLeft>
             </HomeWrapper>
-
         )
     }
     // 通过生命周期函数发送ajax
