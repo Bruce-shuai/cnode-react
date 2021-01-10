@@ -83,6 +83,7 @@ border: none;
 export const SearchInfo = styled.div`
     position: absolute;
     left: 0;
+    z-index: 3;
     top: 40px;
     width: 19%;
     padding-left: 2.4%;
@@ -96,18 +97,21 @@ export const SearchInfo = styled.div`
 
 export const SearchInfoTitle = styled.a `
     position: relative;
+    // box-sizing: border-box;
     display: block;
-    width: 111.4%;
+    width: 108%;
     height: 30px;
     left: -13.4%;
     cursor: pointer;
-    background: green;
+    background: #ffffff;
+    padding-left: 6%;
     line-height: 30px;
     font-size: 13px;
     &.first {
         top: 10px;
         padding-bottom: 10px;
     }
-    border: 1px solid red;
-    // z-index: 8;
+    &:hover {
+        background: #c8c8c9;
+    }
 `

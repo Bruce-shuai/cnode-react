@@ -9,8 +9,6 @@ class Api extends Component {
     render(){
         return (
             <HomeWrapper>
-                <HomeRight>
-                </HomeRight>
                 <HomeLeft>
                     <Topic />
                 </HomeLeft>

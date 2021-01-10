@@ -121,7 +121,7 @@ const mapStateToProps = (state) => {
     // 这一步是将仓库里的touch映射到组件的props里  这里是从header下面去取
     // touch: state.header.touch  
     // focus: state.get('header').get('focus'),
-    focus: state.get(['header', 'focus']),
+    focus: state.getIn(['header', 'focus']),
     touch: state.getIn(['header', 'touch']),   // 这是使用了immutable后必须要用get() 方法传入touch这个属性
     list: state.getIn(['header', 'list'])
   }

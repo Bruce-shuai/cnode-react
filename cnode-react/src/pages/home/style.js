@@ -96,6 +96,9 @@ export const ListItem = styled.div`
     padding-right: 10px;
     background: #fff;
     border-top: none;
+    &: hover {
+        background: #f5f5f5;
+    }
 `
 export const Img = styled.img`
     word-break: break-word;
@@ -116,6 +119,7 @@ export const A = styled.a `
     font-family: "Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,sans-serif!important;
     line-height: 2em;
     font-size: 14px;
+    cursor: pointer;   
     text-decoration: none;
     float: left;
     color: #778087;
@@ -186,8 +190,8 @@ export const First = styled.span `
 export const Title = styled.a `
     word-break: break-word;
     font-family: "Helvetica Neue","Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,sans-serif!important;
-    text-decoration: none;
     overflow: hidden;
+    cursor: pointer;
     text-overflow: ellipsis;
     max-width: 70%;
     white-space: nowrap;
@@ -197,6 +201,9 @@ export const Title = styled.a `
     font-size: 1em;
     width: 100%;
     color: #888;
+    &:hover {
+        text-decoration: underline;
+    }
 `;
 
 export const Pagination = styled.div `
